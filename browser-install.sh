@@ -196,34 +196,23 @@ Get_Download_Url_Domain() {
     fi
 }
 
-# 1 Check Arch
+# 1 Check Arch (Sudah Dimodifikasi Khusus Repositori Anda)
 Check_Arch() {
     case $UNAME_M in
-    *aarch64*)
-        TARGET_ARCH="arm64"
-        ;;
     *64*)
         TARGET_ARCH="amd64"
         ;;
-    *armv7*)
-        TARGET_ARCH="arm-7"
-        ;;
     *)
-        Show 1 "Aborted, unsupported or unknown architecture: $UNAME_M"
+        Show 1 "Aborted, script ini dimodifikasi khusus untuk arsitektur amd64 saja."
         exit 1
         ;;
     esac
     Show 0 "Your hardware architecture is : $UNAME_M"
+    
+    # Menembak langsung ke 2 file v0.4.15 yang ada di halaman depan GitHub Anda
     CASA_PACKAGES=(
-        "${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-Gateway/releases/download/v0.4.9-alpha4/linux-${TARGET_ARCH}-casaos-gateway-v0.4.9-alpha4.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-MessageBus/releases/download/v0.4.4-3-alpha2/linux-${TARGET_ARCH}-casaos-message-bus-v0.4.4-3-alpha2.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-UserService/releases/download/v0.4.8/linux-${TARGET_ARCH}-casaos-user-service-v0.4.8.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-LocalStorage/releases/download/v0.4.4/linux-${TARGET_ARCH}-casaos-local-storage-v0.4.4.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-AppManagement/releases/download/v0.4.10-alpha2/linux-${TARGET_ARCH}-casaos-app-management-v0.4.10-alpha2.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS/releases/download/v0.4.15/linux-${TARGET_ARCH}-casaos-v0.4.15.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-CLI/releases/download/v0.4.4-3-alpha1/linux-${TARGET_ARCH}-casaos-cli-v0.4.4-3-alpha1.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-UI/releases/download/v0.4.25/linux-all-casaos-v0.4.25.tar.gz"
-"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-AppStore/releases/download/v0.4.5/linux-all-appstore-v0.4.5.tar.gz" 
+        "${CASA_DOWNLOAD_DOMAIN}linux-amd64-casaos-migration-tool-v0.4.15.tar.gz"
+        "${CASA_DOWNLOAD_DOMAIN}linux-amd64-casaos-v0.4.15.tar.gz"
     )
 }
 
